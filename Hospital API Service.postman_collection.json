@@ -1,0 +1,276 @@
+{
+	"info": {
+		"_postman_id": "c25c986e-3dfe-4083-aef9-2e5e475c1999",
+		"name": "Hospital API Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12793530"
+	},
+	"item": [
+		{
+			"name": "Staff",
+			"item": [
+				{
+					"name": "Create Staff",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Adewale\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/staffs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"staffs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Staff",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John Doe\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/staffs/341845e1-d4c2-4281-bb95-501a4293af8d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"staffs",
+								"341845e1-d4c2-4281-bb95-501a4293af8d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patients",
+			"item": [
+				{
+					"name": "Get Patients",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Staff-UUID",
+								"value": "ae5174b3-93f8-4988-b9f2-e26969f6b383",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/patients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2021-07-10",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": "2023-03-22",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Staff-UUID",
+										"value": "ae5174b3-93f8-4988-b9f2-e26969f6b383",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/patients?startDate=2021-07-10&endDate=2023-02-05",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"patients"
+									],
+									"query": [
+										{
+											"key": "startDate",
+											"value": "2021-07-10"
+										},
+										{
+											"key": "endDate",
+											"value": "2023-02-05"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 30 Jun 2024 16:06:21 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"totalPages\": 2,\n    \"totalElements\": 13,\n    \"first\": false,\n    \"last\": true,\n    \"size\": 10,\n    \"content\": [\n        {\n            \"id\": 11,\n            \"name\": \"Alice Johnson\",\n            \"age\": 28,\n            \"lastVisitDate\": \"2021-07-10\"\n        },\n        {\n            \"id\": 15,\n            \"name\": \"Alice Johnson\",\n            \"age\": 28,\n            \"lastVisitDate\": \"2021-07-10\"\n        },\n        {\n            \"id\": 19,\n            \"name\": \"Alice Johnson\",\n            \"age\": 28,\n            \"lastVisitDate\": \"2021-07-10\"\n        }\n    ],\n    \"number\": 1,\n    \"sort\": {\n        \"empty\": false,\n        \"unsorted\": false,\n        \"sorted\": true\n    },\n    \"pageable\": {\n        \"pageNumber\": 1,\n        \"pageSize\": 10,\n        \"sort\": {\n            \"empty\": false,\n            \"unsorted\": false,\n            \"sorted\": true\n        },\n        \"offset\": 10,\n        \"unpaged\": false,\n        \"paged\": true\n    },\n    \"numberOfElements\": 3,\n    \"empty\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Patients Up to Years",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Staff-UUID",
+								"value": "ae5174b3-93f8-4988-b9f2-e26969f6b383",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/patients?years=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "years",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Patient",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Staff-UUID",
+								"value": "ae5174b3-93f8-4988-b9f2-e26969f6b383",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/patients/2/download",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"patients",
+								"2",
+								"download"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Patients",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Staff-UUID",
+								"value": "ae5174b3-93f8-4988-b9f2-e26969f6b383",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/patients?startDate=2021-07-10&endDate=2022-01-15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2021-07-10"
+								},
+								{
+									"key": "endDate",
+									"value": "2022-01-15"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
